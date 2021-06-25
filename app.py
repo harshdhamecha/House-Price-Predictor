@@ -27,15 +27,16 @@ def main():
     submit = st.button('Predict Price')
 
     if submit:
-        with st.spinner('Predicting...'):
-            time.sleep(2)
-            if bhk and area and baths and balcony:
+        
+        if bhk and area and baths and balcony:
+            with st.spinner('Predicting...'):
+                time.sleep(2)
                 bhk, area, baths, balcony = int(bhk), int(area), int(baths), int(balcony)
                 x_test = np.array([[bhk, area, baths, balcony]])
                 prediction = predict(df, x_test)
                 st.info(f"Your **Dream House** Price is {prediction} lacs")
-            else:
-                st.error('Please Enter All the Details')
+        else:
+            st.error('Please Enter All the Details')
 
 
 @st.cache
