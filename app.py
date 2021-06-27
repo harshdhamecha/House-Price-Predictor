@@ -26,8 +26,7 @@ def main():
     balcony = st.selectbox("Total Balcony", ['0', '1', '2', '3'])
     submit = st.button('Predict Price')
 
-    if submit:
-        
+    if submit: 
         if bhk and area and baths and balcony:
             with st.spinner('Predicting...'):
                 time.sleep(2)
